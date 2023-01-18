@@ -42,9 +42,12 @@ class SongController extends Controller
 
     public function updateSongs(Request $request) {
 
-        $nextId = Song::all()->last()["id"] + 1;
+        $nextId = Song::all()->sortBy("id")->last()["id"] + 1;
 
         $explicit = $request->input("explicit") == 1 ? 1 : 0;
+
+        $length = $request->input("length");
+        $length = ($length % 100) + (intdiv($length, 100) * 60);
 
         Song::create([
             "id" => $nextId,
@@ -54,7 +57,7 @@ class SongController extends Controller
             "explicit" => $explicit,
             "artist" => $request->input('artist'),
             "album" => $request->input('album'),
-            "length" => $request->input('length')
+            "length" => $length
         ]);
 
         return redirect('/admin');
