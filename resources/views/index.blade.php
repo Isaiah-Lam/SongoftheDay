@@ -32,7 +32,7 @@
                 <tr class="song">
                     <td class="song-id">'.$songs[$i]['id'].'</td>
                     <td class="song-date">'.$songs[$i]['date'].'</td>
-                    <td class="song-title">'.$songs[$i]['title'].'</td>';
+                    <td class="song-title"><div>'.$songs[$i]['title'].'</div><div style="width:20%; float:right;"><a href="'.$songs[$i]['amazon'].'" target="_blank">Amazon Music</a></div><div style="width:20%; float:right;"><a href="'.$songs[$i]['amazon'].'" target="_blank">Youtube</a></div></td>';
                     if ($songs[$i]['explicit'] == 1) {
                         echo'<td class="song-explicit">Yes</td>';
                     }
@@ -43,7 +43,7 @@
                     echo'
                     <td class="song-artist">'.$songs[$i]['artist'].'</td>
                     <td class="song-album">'.$songs[$i]['album'].'</td>
-                    <td class="song-length">'.$songs[$i]['length'].'</td>
+                    <td class="song-length">'.intdiv($songs[$i]['length'], 60).':'.sprintf('%02d', ($songs[$i]['length'] % 60)).'</td>
                 </tr>
                 ';
             }

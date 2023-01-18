@@ -19,7 +19,7 @@ if (session_status() === PHP_SESSION_NONE) {
 */
 
 Route::get('/', function () {
-    $songs = json_decode(json_encode(DB::select("select * from songs order by id")), true);
+    $songs = json_decode(json_encode(DB::select("select * from songs join links on (id = songid) order by id")), true);
     return view('index', ['songs' => $songs]);
 });
 
