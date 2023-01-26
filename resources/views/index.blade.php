@@ -28,11 +28,13 @@
     		    session_start();
 		    }   
             for ($i=0; $i<count($songs); $i++) {
+                // Save this line for links
+                // <td class="song-title"><div>'.$songs[$i]['title'].'</div><div style="width:20%; float:right;"><a href="'.$songs[$i]['amazon'].'" target="_blank">Amazon Music</a></div><div style="width:20%; float:right;"><a href="'.$songs[$i]['amazon'].'" target="_blank">Youtube</a></div></td>';
                 echo '
                 <tr class="song">
                     <td class="song-id">'.$songs[$i]['id'].'</td>
                     <td class="song-date">'.$songs[$i]['date'].'</td>
-                    <td class="song-title"><div>'.$songs[$i]['title'].'</div><div style="width:20%; float:right;"><a href="'.$songs[$i]['amazon'].'" target="_blank">Amazon Music</a></div><div style="width:20%; float:right;"><a href="'.$songs[$i]['amazon'].'" target="_blank">Youtube</a></div></td>';
+                    <td class="song-title">'.$songs[$i]['title'].'</td>';
                     if ($songs[$i]['explicit'] == 1) {
                         echo'<td class="song-explicit">Yes</td>';
                     }
