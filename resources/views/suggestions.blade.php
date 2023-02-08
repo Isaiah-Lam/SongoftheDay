@@ -20,6 +20,7 @@
 			<th style="width: 20%">Artist</th>
             <th style="width: 30%">Link</th>
 		</tr>
+        
         <?php
             for ($i=0; $i<count($suggestions); $i++) {
                 echo '
